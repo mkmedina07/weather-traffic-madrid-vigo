@@ -1,0 +1,6 @@
+streamlit
+streamlit-autorefresh
+pandas
+requests
+python-dotenv
+scikit-learn
