@@ -1,16 +1,63 @@
 # Entorno virtual
 venv/
+.venv/
 
-# Base de datos
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Byte-compiled / optimized / DLL files
+*.so
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Environment variables / secrets
+.env
+.env.local
+.env.*
+.streamlit/secrets.toml
+
+# Databases
 db/*.db
+db/*.sqlite3
 db/
 
-# Variables de entorno
-.env
+# OS
+.DS_Store
+Thumbs.db
 
-# Python cache
-__pycache__/
+# Editor/IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Test / coverage
+.pytest_cache/
+coverage.xml
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints
+
+# Logs
+*.log
+streamlit.log
+
+# Analysis / results / artifacts
+analysis_results/
+
+# Packages
+venv/
+env/
+ENV/
+env.bak/
+
+# Misc
 *.pyc
-
-# Streamlit
-.streamlit/secrets.toml
+*.pyo
+*.pyd
