@@ -1,15 +1,17 @@
-# Clima y Tráfico Madrid - Vigo
+# weather-traffic-madrid-vigo
 
-Proyecto de demostración que integra datos de clima y tráfico para Madrid y Vigo usando Streamlit y SQLite.
+Proyecto de análisis de datos que ingiere clima histórico real (Open-Meteo), genera una relación entre clima y congestión de tráfico, calcula medias por año/mes, y ofrece predicciones para los meses restantes de 2026 con una interfaz interactiva en Streamlit.
 
 ## Estructura del proyecto
 
 - `app.py`: aplicación principal de Streamlit.
 - `etl.py`: script para obtener datos actuales de clima y tráfico y guardarlos en SQLite.
 - `utils/weather.py`: consulta a OpenWeather para obtener datos meteorológicos.
-- `utils/traffic.py`: genera un nivel de tráfico simulado por ciudad.
+- `utils/traffic.py`: genera un nivel de tráfico estimado por ciudad.
 - `utils/database.py`: maneja la base de datos local SQLite.
-- `db/clima_trafico.db`: base de datos SQLite generada automáticamente.
+- `utils/ml_utils.py`: utilidades para entrenamiento y predicción ML.
+- `utils/ml_model.py`: definición del modelo y entrenamiento.
+- `scripts/`: scripts adicionales de historiales y predicciones.
 - `requirements.txt`: dependencias del proyecto.
 - `.env.example`: plantilla para variables de entorno.
 
@@ -41,7 +43,7 @@ OPENWEATHER_API_KEY=tu_api_key_aqui
 
 ## Uso
 
-- Ejecutar el script ETL para obtener datos y guardarlos en la base de datos:
+- Ejecutar el script ETL para obtener datos de clima y tráfico:
 
 ```sh
 python etl.py
@@ -53,8 +55,17 @@ python etl.py
 streamlit run app.py
 ```
 
+## Características
+
+- Ingesta de clima histórico real vía Open-Meteo.
+- Cálculo de agregados por año y mes.
+- Variables: temperatura, humedad, viento y precipitación.
+- Modelo ML para predecir congestión futura.
+- Interfaz interactiva con descarga de resultados.
+
 ## Notas
 
 - La base de datos SQLite se guarda en `db/clima_trafico.db`.
-- Si no tienes clave de OpenWeather, la app mostrará un mensaje de error.
-- `utils/traffic.py` genera valores de tráfico simulados basados en la ciudad y la hora actual.
+- Las variables sensibles y artefactos se ignoran en `.gitignore`.
+- Usa `streamlit run app.py` para abrir la aplicación localmente.
+
